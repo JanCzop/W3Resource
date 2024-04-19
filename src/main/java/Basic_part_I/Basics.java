@@ -1,200 +1,72 @@
 package Basic_part_I;
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.util.Collections;
 
 public class Basics {
-    public static void task_1() {
-        System.out.println("Hello\nJan Czop");
+
+    public static String task_19_int_to_bin(int input){
+        return int_to_another_representation(input,Digit_system.BINARY);
+    }
+    public static String task_20_int_to_hex(int input){
+        return int_to_another_representation(input,Digit_system.HEXADECIMAL);
+    }
+    public static String task_21_int_to_oct(int input){
+        return int_to_another_representation(input,Digit_system.OCTAGONAL);
     }
 
-    public static void task_2() {
-        System.out.println(74 + 36);
-    }
 
-    public static void task_3() {
-        System.out.println(50 / 3);
-    }
 
-    public static void task_4() {
-        System.out.println(-5 + 8 * 6);
-        System.out.println((55 + 9) % 9);
-        System.out.println(20 + (-3) * 5 / 8);
-        System.out.println(5 + 15 / 3 * 2 - 8 % 3);
-    }
-
-    public static void task_5() {
-        int a, b;
-        Scanner scanner = new Scanner(System.in);
-        try {
-            System.out.print("Input first number: ");
-            a = scanner.nextInt();
-            System.out.print("Input second number: ");
-            b = scanner.nextInt();
-            System.out.println(a + " x " + b + " = " + (a * b));
-        } catch (Exception e) {
-            System.out.println("Bad input");
-        } finally {
-            scanner.close();
+    private static String int_to_another_representation(int input, Digit_system system){
+        StringBuilder bin = new StringBuilder();
+        while(input!=0){
+            bin.append(represent_int_digit(input%system.getValue(), system));
+            input/=system.getValue();
         }
+        return bin.reverse().toString();
     }
-
-    public static void task_6() {
-        int a, b;
-        Scanner scanner = new Scanner(System.in);
-        try {
-            System.out.print("Input first number: ");
-            a = scanner.nextInt();
-            System.out.print("Input second number: ");
-            b = scanner.nextInt();
-            System.out.println(a + " + " + b + " = " + (a + b));
-            System.out.println(a + " - " + b + " = " + (a - b));
-            System.out.println(a + " x " + b + " = " + (a * b));
-            System.out.println(a + " / " + b + " = " + (a / b));
-            System.out.println(a + " mod " + b + " = " + (a % b));
-        } catch (Exception e) {
-            System.out.println("Bad input");
-        } finally {
-            scanner.close();
-        }
-    }
-
-    public static void task_7() {
-        int a, counter = 0;
-        Scanner scanner = new Scanner(System.in);
-        try {
-            System.out.print("Input first number: ");
-            a = scanner.nextInt();
-            while (counter < 10) {
-                System.out.println(a + " x " + ++counter + " = " + a * counter);
+    private static String represent_int_digit(int input, Digit_system system){
+        switch (system){
+            case HEXADECIMAL -> {
+                if(input<=10) return String.valueOf(input);
+                else return Character.toString('A'+(input-10));
             }
-        } catch (Exception e) {
-            System.out.println("Bad input");
-        } finally {
-            scanner.close();
+            default -> {
+                return String.valueOf(input);
+            }
+        }
+    }
+    private enum Digit_system {
+        BINARY(2),
+        DECIMAL(10),
+        HEXADECIMAL(16),
+        OCTAGONAL(8);
+        private final int value;
+        private Digit_system(int value) {
+            this.value = value;
+        }
+        public int getValue() {
+            return value;
         }
     }
 
-
-    public static void task_8() {
-        System.out.println("   J    a   v     v  a\n" +
-                "   J   a a   v   v  a a\n" +
-                "J  J  aaaaa   V V  aaaaa\n" +
-                " JJ  a     a   V  a     a");
-    }
-
-    public static void task_9() {
-        System.out.println(((25.5 * 3.5 - 3.5 * 3.5) / (40.5 - 4.5)));
-    }
-    public static void task_10() {
-        System.out.println(4.0 * (1 - (1.0/3) + (1.0/5) - (1.0/7) + (1.0/9) - (1.0/11)));
-    }
-
-    public static void task_11(){
-        int radius;
-        double pi = Math.PI;
-        Scanner scanner = new Scanner(System.in);
-        try {
-            System.out.print("Radius: ");
-            radius = scanner.nextInt();
-            System.out.println("Perimeter is = " + 2*pi*radius);
-            System.out.println("Area is = " + pi*radius*radius);
-        } catch (Exception e) {
-            System.out.println("Bad input");
-        } finally {
-            scanner.close();
+    public static int task_22_bin_to_int(String input){
+        StringBuilder stringBuilder = new StringBuilder(input).reverse();
+        int decimal = 0;
+        int counter = 0;
+        for (int i = 0; i < stringBuilder.length(); i++) {
+            if(stringBuilder.charAt(i)=='0');
+            else if(stringBuilder.charAt(i)=='1') decimal += Math.pow(2,counter);
+            else throw new IllegalArgumentException();
+            counter++;
         }
+        return decimal;
     }
 
-    public static void task_12(){
-        int a,b,c;
-        Scanner scanner = new Scanner(System.in);
-        try {
-            System.out.print("Input first number: ");
-            a = scanner.nextInt();
-            System.out.print("Input second number: ");
-            b = scanner.nextInt();
-            System.out.println("Input third number");
-            c = scanner.nextInt();
-            System.out.println("Average is " + (a+b+c)/3);
-        } catch (Exception e) {
-            System.out.println("Bad input");
-        } finally {
-            scanner.close();
-        }
+    public static String task_23_bin_to_hex(String input){
+        return task_20_int_to_hex(task_22_bin_to_int(input));
     }
-
-    public static void task_13(){
-        int width, height;
-        Scanner scanner = new Scanner(System.in);
-        try {
-            System.out.print("Input width: ");
-            width = scanner.nextInt();
-            System.out.print("Input height: ");
-            height = scanner.nextInt();
-            System.out.println("Area is " + width * height);
-            System.out.println("Perimeter is " + 2 * (width+height));
-        } catch (Exception e) {
-            System.out.println("Bad input");
-        } finally {
-            scanner.close();
-        }
+    public static String task_24_bin_to_oct(String input){
+        return task_21_int_to_oct(task_22_bin_to_int(input));
     }
-
-    public static void task_14(){
-        System.out.println("* * * * * * ==================================\n" +
-                " * * * * *  ==================================\n" +
-                "* * * * * * ==================================\n" +
-                " * * * * *  ==================================\n" +
-                "* * * * * * ==================================\n" +
-                " * * * * *  ==================================\n" +
-                "* * * * * * ==================================\n" +
-                " * * * * *  ==================================\n" +
-                "* * * * * * ==================================\n" +
-                "==============================================\n" +
-                "==============================================\n" +
-                "==============================================\n" +
-                "==============================================\n" +
-                "==============================================\n" +
-                "==============================================");
-    }
-
-    public static void task_15(){
-        int a = 1, b = 2;
-        a = a + b;
-        b = a - b;
-        a = a - b;
-        System.out.println("a = " + a);
-        System.out.println("b = " + b);
-    }
-
-    public static void task_16(){
-        System.out.println("+\"\"\"\"\"+\n" +
-                "[| o o |]\n" +
-                " |  ^  |\n" +
-                " | '-' |\n" +
-                " +-----+");
-    }
-
-    public static void task_17(){
-
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

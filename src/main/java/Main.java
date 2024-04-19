@@ -1,4 +1,5 @@
 import Basic_part_I.Basics;
+import Basic_part_I.TotalBasics;
 
 import java.lang.reflect.Method;
 
@@ -19,6 +20,6 @@ public class Main {
         }
     }
     public static void main(String[] args) {
-       Basics.task_12();
+       Basics.task_22_bin_to_int("100");
     }
 }
