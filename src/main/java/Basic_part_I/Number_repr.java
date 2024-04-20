@@ -1,8 +1,6 @@
 package Basic_part_I;
 
-import java.util.Collections;
-
-public class Basics {
+public class Number_repr {
 
     public static String task_19_int_to_bin(int input){
         return int_to_another_representation(input,Digit_system.BINARY);
@@ -68,5 +66,49 @@ public class Basics {
     public static String task_24_bin_to_oct(String input){
         return task_21_int_to_oct(task_22_bin_to_int(input));
     }
+
+    public static int task_25_oct_to_int(String input){
+        int decimal = 0, counter = 0;
+        for (int i = input.length()-1; i >= 0; i--) {
+            decimal += Math.pow(8,counter) * Integer.parseInt(Character.toString(input.charAt(i)));
+            counter++;
+        }
+        return decimal;
+    }
+
+    public static String task_26_oct_to_bin(String input){
+        return task_19_int_to_bin(task_25_oct_to_int(input));
+    }
+
+    public static String task_27_oct_to_hex(String input){
+        return task_20_int_to_hex(task_25_oct_to_int(input));
+    }
+
+    public static int task_28_hex_to_int(String input){
+        int decimal = 0;
+        StringBuilder stringBuilder = new StringBuilder(input).reverse();
+        for (int i = 0; i < stringBuilder.length(); i++) {
+            decimal += Math.pow(16,i) * hex_representation_in_dec(stringBuilder.charAt(i));
+        }
+        return decimal;
+    }
+    private static int hex_representation_in_dec(char character){
+        if(character>='0' && character<='9') return Integer.parseInt(Character.toString(character));
+        else if(character>='A' && character<='F') return 10+character-'A';
+        else throw new IllegalArgumentException();
+    }
+
+    public static String task_29_hex_to_bin(String input){
+        return task_19_int_to_bin(task_28_hex_to_int(input));
+    }
+
+    public static String task_30_hex_to_oct(String input){
+        return task_21_int_to_oct(task_28_hex_to_int(input));
+    }
+
+
+
+
+
 
 }

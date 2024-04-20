@@ -1,4 +1,5 @@
-import Basic_part_I.Basics;
+import Basic_part_I.Number_repr;
+import Basic_part_I.Strings;
 import Basic_part_I.TotalBasics;
 
 import java.lang.reflect.Method;
@@ -20,6 +21,6 @@ public class Main {
         }
     }
     public static void main(String[] args) {
-       Basics.task_22_bin_to_int("100");
+        Strings.task_60_penultimate_word("fox cat rat");
     }
 }

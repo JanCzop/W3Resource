@@ -1,5 +1,9 @@
 package Basic_part_I;
 
+import java.io.Console;
+import java.io.File;
+import java.nio.charset.Charset;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class TotalBasics {
@@ -232,19 +236,218 @@ public class TotalBasics {
         // TODO:
     }
 
+    public static String task_31_is_java_installed(){
+        return "Java Version: " + System.getProperty("java.version") + "\n" +
+                "Java Runtime Version: " + System.getProperty("java.runtime.version") + "\n" +
+                "Java Home: " + System.getProperty("java.home") + "\n" +
+                "Java Vendor: " + System.getProperty("java.vendor") + "\n" +
+                "Java Vendor URL: " + System.getProperty("java.vendor.url") + "\n" +
+                "Java Class Path: " + System.getProperty("java.class.path") + "\n";
+    }
 
+    public static String task_32_int_comparison(){
+        int num_1, num_2;
+        Scanner scanner = new Scanner(System.in);
+        try {
+            System.out.print("Input first integer: ");
+            num_1 = scanner.nextInt();
+            System.out.print("Input second integer: ");
+            num_2 = scanner.nextInt();
+            StringBuilder stringBuilder = new StringBuilder();
+            if (num_1 == num_2) {
+                stringBuilder.append(num_1).append(" == ").append(num_2);
+            } else {
+                if(num_1>num_2) stringBuilder.append(num_1).append(" > ").append(num_2);
+                else stringBuilder.append(num_1).append(" < ").append(num_2);
+            }
+            return stringBuilder.toString();
+        } catch (Exception e) {
+            System.out.println("Bad input");
+            return "";
+        } finally {
+            scanner.close();
+        }
 
+    }
 
+    public static int task_33_sum_of_digits(int input){
+        int digits = 0;
+        while(input!=0){
+            input /= 10;
+            digits++;
+        }
+        return digits;
+    }
 
+    public static double task_34_hexagon_area(int side){
+        return task_35_polygon_area(side,6);
+    }
+    public static double task_35_polygon_area(int side, int number_of_sides){
+        return (number_of_sides*side*side)/(4*Math.tan(Math.PI/number_of_sides));
+    }
 
+    // Harversine's formula:
+    // d = radius * arccos(sin(x1) * sin(x2) + cos(x1) * cos(x2) * cos(y1 - y2))
 
+    public static double task_36_distance_between_points_on_Earth(double x1, double y1, double x2, double y2){
+        double EARTH_RADIUS = 6371.01; // km
+        return EARTH_RADIUS * Math.acos(
+                Math.sin(Math.toRadians(x1))*Math.sin(Math.toRadians(x2))+
+                        Math.cos(Math.toRadians(x1))*Math.cos(Math.toRadians(x2))*Math.cos(Math.toRadians(y1)-Math.toRadians(y2)));
+    }
 
+    public static String task_37_reverse_string(String input){
+        StringBuilder stringBuilder = new StringBuilder(input);
+        return stringBuilder.reverse().toString(); //xd
+    }
 
+    public static int[] task_38_string_properties(String input){
+        int letters = 0, spaces = 0, numbers = 0, others = 0;
+        for (int i = 0; i < input.length(); i++) {
+            if(Character.isLetter(input.charAt(i))) letters++;
+            else if(Character.isSpaceChar(input.charAt(i))) spaces++;
+            else if(Character.isDigit(input.charAt(i))) numbers++;
+            else others++;
+        }
+        return new int[]{letters,spaces,numbers,others};
+    }
 
+    public static int task_39_count_unique_numbers(){
+        int DIGITS_NUMBER = 4, counter = 0;
+        for (int i = 0; i < DIGITS_NUMBER; i++) {
+            for (int j = 0; j < DIGITS_NUMBER; j++) {
+                for (int k = 0; k < DIGITS_NUMBER; k++) {
+                    if(i!=j && i!=k && j!=k) counter++;
+                }
+            }
+        }
+        return counter;
+    }
 
+    public static String task_40_available_charsets(){
+        StringBuilder stringBuilder = new StringBuilder();
+        for (String str: Charset.availableCharsets().keySet()){
+            stringBuilder.append(str).append("\n");
+        }
+        return stringBuilder.toString();
+    }
 
+    public static int task_41_display_chars_ASCII(char ch){
+        return ch;
+    }
 
+    public static void task_42_password(){
+        Console cons;
+        if ((cons = System.console()) != null) {
+            char[] pass_ward = null;
+            try {
+                pass_ward = cons.readPassword("Input your Password:");
+                System.out.println("Your password was: " + new String(pass_ward));
+            } finally {
+                if (pass_ward != null) java.util.Arrays.fill(pass_ward, ' ');
+            }
+        } else throw new RuntimeException("Can't get the password... No console");
+    }
 
+    public static String task_43(){
+        return "Twinkle, twinkle, little star,\n" +
+                "\tHow I wonder what you are!\n" +
+                "\t\tUp above the world so high,\n" +
+                "\t\tLike a diamond in the sky.\n" +
+                "Twinkle, twinkle, little star,\n" +
+                "\tHow I wonder what you are";
+    }
+
+    public static long task_44(int input){
+        try{
+            int digits = task_33_sum_of_digits(input);
+            return (int) (3*input + 2*Math.pow(10,digits)*input + Math.pow(10,digits+digits)*input);
+        } catch (Exception e){
+            throw new RuntimeException();
+        }
+    }
+
+    public static double task_45_file_size(String file_path){
+        return new File(file_path).length();
+    }
+
+    public static void task_46_sys_time(){
+        System.out.format("\nCurrent Date time: %tc%/n\n", System.currentTimeMillis());
+    }
+
+    public static void task_47_time(){
+        SimpleDateFormat cdt = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS");
+        cdt.setCalendar(Calendar.getInstance(TimeZone.getTimeZone("GMT")));
+        System.out.println("\nNow: " + cdt.format(System.currentTimeMillis()));
+    }
+
+    public static void task_48(){
+        for (int i = 0; i < 100; i++) {
+            System.out.println(i);
+        }
+    }
+
+    public static boolean task_49_is_even(int input){
+        return input%2==0;
+    }
+
+    public static int[] task_50_divisible_of_mult(int num_1, int num_2){
+        int CAP = 100;
+        ArrayList<Integer> list = new ArrayList<>();
+        for (int i = (num_1*num_2); i < CAP; i+=(num_1*num_2)) {
+            list.add(i);
+        }
+        return list.stream().mapToInt( i -> i).toArray();
+    }
+
+    public static int task_51_convert_str_to_int(String input){
+        try{
+            return Integer.parseInt(input);
+        } catch (Exception e){
+            throw new IllegalArgumentException();
+        }
+    }
+
+    public static boolean task_52_int_plus_int_comparison(int num_1, int num_2, int num_3){
+        return num_1+num_2 == num_3;
+    }
+
+    public static boolean task_53_int_stairs_comparison(int num_1, int num_2, int num_3){
+        return num_1<num_2 && num_2<num_3;
+    }
+
+    public static boolean task_54_right_most_digit(int num_1, int num_2, int num_3){
+        if(num_1<0 || num_2<0 || num_3<0) return false;
+        return (num_1%10==num_2%10 || num_1%10==num_3%10 || num_2%10==num_3%10);
+    }
+
+    public static int[] task_55_seconds_to_time_convert(int input_secs){
+        int SECS_IN_HOUR = 3600, SECS_IN_MIN = 60;
+
+        int hours = input_secs/SECS_IN_HOUR; input_secs%=SECS_IN_HOUR;
+        int minutes = input_secs/SECS_IN_MIN; input_secs%=SECS_IN_MIN;
+        int seconds = input_secs;
+        return new int[]{hours,minutes,seconds};
+    }
+
+    public static int task_56_divisible_in_range(int start, int end, int divisor){
+        int counter = 0;
+        for (int i = start; i < end; i++) {
+            if(i%divisor==0) counter++;
+        }
+        return counter;
+    }
+
+    public static int task_57_factors_number(int number){
+        int counter = 0;
+        for (int i = 0; i < (int) Math.sqrt(number); i++) {
+            if(number%i==0){
+                if(number/i==i) counter++;
+                else counter+=2;
+            }
+        }
+        return counter;
+    }
 
 
 
