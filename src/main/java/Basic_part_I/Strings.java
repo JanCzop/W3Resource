@@ -66,6 +66,42 @@ public class Strings {
                 stringBuilder.append(str_2).append(str_1).append(str_2).toString();
     }
 
+    public static String task_71(String str_1, String str_2){
+        if(str_1.length() ==1 || str_2.length() == 1) return str_1 + str_2;
+        else {
+            return str_1.substring(1) + str_2.substring(1);
+        }
+    }
+
+    public static String task_72(String str){
+        StringBuilder to_return = new StringBuilder();
+        if(str.length() < 3){
+            to_return.append(str);
+            to_return.append("#".repeat(3 - to_return.length() - 1));
+            return to_return.toString();
+        }
+        else return to_return.substring(0,3);
+    }
+    public static String task_73(String str_1, String str_2){
+        String to_return = "";
+        to_return += str_1.length() == 0 ? "#" : str_1.charAt(0);
+        to_return += str_2.length() == 0 ? "#" : str_2.charAt(str_2.length()-1);
+        return to_return;
+    }
+
+    public static String task_84(String str){
+        if(str.length() < 3) return null;
+        else {
+            return str.substring(0, 3) +
+                    str +
+                    str.substring(0, 3);
+        }
+    }
+
+    public static boolean task_85(String str, String start){
+        return str.startsWith(start);
+    }
+
 
 
 

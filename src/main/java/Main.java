@@ -21,6 +21,5 @@ public class Main {
         }
     }
     public static void main(String[] args) {
-        Strings.task_60_penultimate_word("fox cat rat");
     }
 }
