@@ -102,6 +102,17 @@ public class Strings {
         return str.startsWith(start);
     }
 
+    public static String task_114(String str, int offset){
+        if(str.length() < offset-1) return str;
+        return str.substring(offset,str.length()-1) + str.substring(0,offset);
+    }
+
+    public static boolean task_118(String str, String occur){
+        for (int i = 0; i < str.length(); i++) {
+            if(str.substring(i,str.length()-1).startsWith(occur)) return true;
+        }
+        return false;
+    }
 
 
 

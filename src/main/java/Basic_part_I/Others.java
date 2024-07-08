@@ -25,5 +25,10 @@ public class Others {
         return System.currentTimeMillis() - time_start;
     }
 
+    public static My_linked_list task_121(My_linked_list linked_list){
+        linked_list.reverse_list();
+        return linked_list;
+    }
+
 
 }

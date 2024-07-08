@@ -231,5 +231,194 @@ public class Arrays_and_integers {
         return false;
     }
 
+    public static int[] task_103(int[] array){
+        boolean created = false;
+        int[] new_array = null;
+        int index = 0;
+        for (int i = 0; i < array.length; i++) {
+            if(array[i] == 10){
+                new_array = new int[array.length - 1 - i];
+                created = true;
+            }
+            if(created) new_array[index++] = array[i];
+        }
+        return new_array;
+    }
+
+    public static int[] task_104(int[] array){
+        List<Integer> new_list = new ArrayList<>();
+        for (int i = 0; i < array.length; i++){
+            if(array[i] == 10) i = array.length;
+            else new_list.add(array[i]);
+        }
+        int[] new_array = new int[new_list.size()];
+        for (int i = 0; i < new_array.length; i++) {
+            new_array[i] = new_list.get(i);
+        }
+        return new_array;
+    }
+
+    public static boolean task_105(int[] array){
+        return array[0] == array[array.length-1];
+    }
+
+    public static int[] task_106(int[] arr_1, int[] arr_2){
+        int[] summed_arr = new int[arr_1.length + arr_2.length];
+        System.arraycopy(arr_1, 0, summed_arr, 0, arr_1.length);
+        System.arraycopy(arr_2, 0, summed_arr, arr_1.length, arr_2.length);
+        return summed_arr;
+    }
+
+    public static boolean task_107(int[] array){
+        for (int i = 0; i < array.length; i++) {
+            if(i < array.length - 2){
+                if(array[i+1] == array[i]+1 &&
+                   array[i+2] == array[i]+2) return true;
+            }
+        }
+        return false;
+    }
+
+    public static int task_108(int number){
+        int sum = 0;
+        while(number != 0){
+            sum += number % 10;
+            number /= 10;
+        }
+        return sum;
+    }
+
+    public static boolean task_110(int number){
+        int current = 4;
+        while(current < number){
+            current *= 4;
+            if(current == number) return true;
+        }
+        return false;
+    }
+
+    public static int task_111(int a, int b){
+        while(b != 0){
+            int carry = a & b;
+            a = a ^ b;
+            b = carry << 1;
+        }
+        return b;
+    }
+
+    public static int task_112(int number){
+        int ctr = 0;
+        while (number != 0) {
+            ctr += number / 5;
+            number /= 5;
+        }
+        return ctr;
+    }
+
+    public static int[] task_113(int[] arr_1, int[] arr_2){
+        int[] merged_arr = new int[arr_1.length + arr_2.length];
+        int i = arr_1.length-1, j = arr_2.length-1, counter = 0;
+        while(i != 0 && j != 0){
+            if(arr_1[i] <= arr_2[j]){
+                merged_arr[counter] = arr_1[i];
+                i--;
+            }
+            else {
+                merged_arr[counter] = arr_2[j];
+                j--;
+            }
+            counter++;
+        }
+        return merged_arr;
+    }
+
+    public static boolean task_115(int number){
+        int reversed = 0;
+        while(number != 0){
+            reversed *= 10;
+            reversed += number % 10;
+            number /= 10;
+        }
+        return reversed == number;
+    }
+
+    public static void task_116(int[] array){
+        for (int number:array) {
+            if(number % 3 == 0 && number % 5 == 0) System.out.println("fizz and buzz");
+            else if (number % 3 == 0) System.out.println("fizz");
+            else if (number % 5 == 0) System.out.println("buzz");
+        }
+    }
+
+    public static int task_117(int number){
+        if(number < 0) throw new IllegalArgumentException("Number must be non-negative");
+        if(number == 0 || number == 1) return number;
+
+        int low = 0;
+        int high = number;
+
+        while(low <= high){
+            int mid = low + (high - low)/2;
+            int mid_square = mid * mid;
+            if(mid_square == number) return mid;
+            else if (mid_square < number) low = mid + 1;
+            else low = mid - 1;
+        }
+        return high;
+    }
+
+    public static int task_119(int[] array, int occur){
+        int low = 0;
+        int high = array.length-1;
+        while(low <= high){
+            int mid = (low + high) >> 1;
+            if(array[mid] == occur) return mid;
+            if(array[mid] >= occur) high = mid - 1;
+            else low = mid + 1;
+        }
+        throw new IllegalArgumentException();
+    }
+
+    public static boolean task_120(int[][] matrix, int occur){
+        if(matrix.length == 0 || matrix[0].length == 0) return false;
+
+        int m = matrix.length;
+        int n = matrix[0].length;
+        int low = 0;
+        int high = m*n-1;
+        while(low <= high){
+            int mid = (low + high) >> 1;
+            int val = matrix[mid/n][mid%n];
+            if(val == occur) return true;
+            if(val >= occur) high = mid - 1;
+            else low = mid + 1;
+        }
+        throw new IllegalArgumentException();
+    }
+
+    public static int task_122(int[] array){
+        return 0;
+    }
+    public static int task_123(int[] array){
+        return 0;
+    }
+
+    public static int task_124(int[] array, int target){
+        if(array == null || array.length == 0) return 0;
+        int low = 0;
+        int high = array.length-1;
+        int mid;
+        while(low+1 < high){
+            mid = low + (high - low)/2;
+            if(array[mid] == target) return mid;
+            else if(array[mid] > target) high = mid;
+            else low = mid;
+        }
+        if(array[low] >= target) return low;
+        else if(array[low] < target && array[high] >= target) return high;
+        else return high+1;
+    }
+
+
 
 }
