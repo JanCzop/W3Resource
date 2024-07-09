@@ -1,0 +1,40 @@
+Full binary tree = the tree with either 0 or 2 children in each node. So full binary tree does not have any
+    node with one children.
+
+    appliance:
+    - Binary-Search-Tree (BST) with very efficient operations.
+    - Black-Red and AVL trees -//-
+    - File indexation
+    - Huffman compression algorithm // TODO
+
+Degenerated tree = the tree in which each node can only have one child.
+
+    appliance:
+    - easy transform to LinkedList
+    - can represent sequences in databases relations
+
+Skewed tree = the tree in which all nodes have only one or no child.
+
+    appliance:
+    - -//- LinkedList
+    - some specific algorithms
+
+Complete tree = the tree with completed (apart from last level) children, last nodes are turned left.
+
+    appliance:
+    - Binary heaps. Heapsort
+    - Priority queues
+
+Ideal tree = the tree with all children completed.
+
+    appliance:
+    - Best for searching O(log n)
+    - Heaps
+    - Graph algorithms.
+
+Balanced tree = the tree with left and right subtrees difference maximum 1 in height.
+
+    appliance:
+    - AVL trees and Black-Red
+    - indexing databases
+    - Priority queues
