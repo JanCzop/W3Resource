@@ -2,8 +2,7 @@ package Basic_part_I;
 
 import Util.Pair;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Arrays_and_integers {
     private static boolean prime_test(int number){
@@ -417,6 +416,112 @@ public class Arrays_and_integers {
         if(array[low] >= target) return low;
         else if(array[low] < target && array[high] >= target) return high;
         else return high+1;
+    }
+
+    public static int task_128(int[] array){
+        return array.length % 2 == 0 ?
+                (array[array.length/2-1] + array[array.length/2])/2 : array.length/2;
+    }
+
+    public static int[] task_129(int[] array){
+        Map<Integer,Integer> map = new HashMap<>();
+        List<Integer> unique_list = new ArrayList<>();
+        for (int num:array) map.put(num,map.getOrDefault(num,0)+1);
+        for (int num : array) if(map.get(num) == 1) unique_list.add(num);
+        int[] result = new int[unique_list.size()];
+        for (int i = 0; i < unique_list.size(); i++) result[i] = unique_list.get(i);
+        return result;
+    }
+
+    public static int task_131(int[] array){
+        Arrays.sort(array);
+        Set<Integer> set = new HashSet<>();
+        for (int num:array) set.add(num);
+        return set.size();
+    }
+
+    public static int[] task_132(int[] array){
+        Map<Integer, Integer> map = new HashMap<>();
+        for(int number:array) map.put(number, map.getOrDefault(number,0)+1);
+        int result_size = 0;
+        for(Map.Entry<Integer,Integer> entry : map.entrySet()) if(entry.getValue() <= 2) result_size++;
+        int[] result = new int[result_size];
+        int index = 0;
+        for(Map.Entry<Integer,Integer> entry : map.entrySet())
+            if(entry.getValue() <= 2) result[index++] = entry.getKey();
+        return result;
+    }
+
+    public static int task_133(int[][] grid){
+        int rows = grid.length;
+        int columns = grid[0].length;
+        int[][] dp = new int[rows][columns];
+
+        dp[0][0] = grid[0][0];
+        for (int i = 1; i < rows; i++) dp[i][0] = dp[i-1][0] + grid[i][0];
+        for (int i = 1; i < columns; i++) dp[0][i] = dp[0][i-1] + grid[0][i];
+
+        for (int i = 1; i < rows; i++)
+            for (int j = 1; j < columns; j++)
+                dp[i][j] = Math.min(dp[i-1][j], dp[i][j-1]);
+
+        return dp[rows-1][columns-1];
+    }
+
+    public static int task_134(int number_of_stairs){
+        if(number_of_stairs <= 1) return 1;
+        int[] dp = new int[number_of_stairs+1];
+        dp[0] = 1;
+        dp[1] = 1;
+        for (int i = 2; i <= number_of_stairs; i++) {
+            dp[i] = dp[i-1] + dp[i-2];
+        }
+        return dp[number_of_stairs];
+    }
+
+
+    public static int task_136(int x, int y){
+        int[][] dp = new int[x][y];
+
+        for (int i = 0; i < x; i++) dp[i][0] = 1;
+        for (int i = 0; i < y; i++) dp[0][i] = 1;
+
+        for (int i = 1; i < x; i++)
+            for (int j = 1; j < y; j++)
+                dp[i][j] = dp[i-1][j] + dp[i][j-1];
+
+        return dp[x-1][y-1];
+    }
+
+    public static int task_137(boolean[][] obstacle_grid){
+        int rows = obstacle_grid.length;
+        int columns = obstacle_grid[0].length;
+        int[][] dp = new int[rows][columns];
+
+        dp[0][0] = obstacle_grid[0][0] ? 0 : 1;
+        for (int i = 1; i < rows; i++)
+            dp[i][0] = (obstacle_grid[i][0] && dp[i-1][0] == 1) ? 1 : 0;
+        for (int i = 1; i < columns; i++)
+            dp[0][i] = (obstacle_grid[0][i] && dp[0][i-1] == 1) ? 1 : 0;
+
+        for (int i = 1; i < rows; i++){
+            for (int j = 1; j < columns; j++) {
+                if (!obstacle_grid[i][j]) dp[i][j] = dp[i-1][j] + dp[i][j-1];
+                else dp[i][j] =0;
+            }
+        }
+        return dp[rows-1][columns-1];
+    }
+
+    public static String task_138(List<String> dict){
+        String longest_string = "";
+        int longest = 0;
+        for(String str:dict)
+            if(str.length() > longest){
+                longest = str.length();
+                longest_string = str;
+            }
+        return longest_string;
     }
 
 
