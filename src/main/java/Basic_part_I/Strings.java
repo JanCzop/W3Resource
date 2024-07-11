@@ -1,5 +1,7 @@
 package Basic_part_I;
 
+import Util.Pair;
+
 import java.util.*;
 
 public class Strings {
@@ -132,6 +134,27 @@ public class Strings {
             map_2.put(str_2.charAt(i),map_2.getOrDefault(str_2.charAt(i),0)+1);
         }
         return map_1.equals(map_2);
+    }
+
+    public static int task_148(String str){
+        Map<Character, Pair<Integer,Integer>> map = new HashMap<>();
+        for (int i = 0; i < str.length(); i++) {
+            // Pair = occurs,index
+            char character = str.charAt(i);
+            if(map.containsKey(character)){
+                Pair<Integer,Integer> pair = map.get(character);
+                pair.setFirst(pair.getFirst()+1);
+            }
+            else{
+                map.put(character,new Pair<>(1,i));
+            }
+        }
+        int min_index = Integer.MAX_VALUE;
+        for(Map.Entry<Character,Pair<Integer,Integer>> entry : map.entrySet()){
+            Pair<Integer,Integer> pair = entry.getValue();
+            if(pair.getFirst() == 1 && pair.getSecond() < min_index) min_index = pair.getSecond();
+        }
+        return min_index;
     }
 
 

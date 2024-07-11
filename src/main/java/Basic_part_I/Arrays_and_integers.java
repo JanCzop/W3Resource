@@ -542,6 +542,36 @@ public class Arrays_and_integers {
         return merged_list;
     }
 
+    public static int[] task_144(int[] array, int to_remove){
+        if(array == null || array.length == 0) return null;
+        int[] temp_array = new int[array.length];
+        int new_len = 0;
+        for(int number:array){
+            if(number != to_remove) temp_array[new_len++] = number;
+        }
+        return Arrays.copyOf(temp_array,new_len);
+    }
+
+    public static int[] task_145(int[] array, int index_to_remove){
+        if(array == null || index_to_remove <= 0 || index_to_remove > array.length) return null;
+        int[] new_array = new int[array.length-1];
+        for (int i = 0, j = 0; i < new_array.length; i++)
+            if(i != array.length-index_to_remove) new_array[j++] = array[i];
+        return new_array;
+    }
+
+    public static int task_147(int num_1, int num_2){
+        int xor = num_1 ^ num_2;
+        int count = 0;
+        while(xor != 0){
+            count += xor & 1;
+            xor >>= 1;
+        }
+        return count;
+    }
+
+
+
 
 
 
