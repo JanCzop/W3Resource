@@ -1,6 +1,7 @@
 package Simple_data_structures.Sorted_linked_list;
 
 import Basic_part_I.My_linked_list;
+import org.w3c.dom.Node;
 
 public class Sorted_linked_list {
     private Node_SLL head;
@@ -96,6 +97,35 @@ public class Sorted_linked_list {
             current = next;
         }
         this.head = previous;
+    }
+
+    public void merge_list(Sorted_linked_list list){
+        if(this.head == null) {
+            this.head = list.head;
+            return;
+        }
+        Node_SLL dummy = new Node_SLL(0);
+        Node_SLL current_merged = dummy;
+        Node_SLL current_1 = this.head;
+        Node_SLL current_2 = list.head;
+        while(current_1 != null && current_2 != null){
+            if(current_1.getData() == current_2.getData()){
+                current_merged.setNext_node(current_1);
+                current_1 = current_1.getNext_node();
+                current_2 = current_2.getNext_node();
+            }
+            else if(current_1.getData() < current_2.getData()){
+                current_merged.setNext_node(current_1);
+                current_1 = current_1.getNext_node();
+            }
+            else{
+                current_merged.setNext_node(current_2);
+                current_2 = current_2.getNext_node();
+            }
+            current_merged = current_merged.getNext_node();
+        }
+        if(current_1 != null){}
+
     }
 
 

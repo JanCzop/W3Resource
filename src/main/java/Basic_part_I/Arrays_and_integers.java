@@ -524,6 +524,26 @@ public class Arrays_and_integers {
         return longest_string;
     }
 
+    public static List<Pair<Integer,Integer>> task_140(List<Pair<Integer,Integer>> intervals){
+        intervals.removeIf(interval -> interval.getFirst() > interval.getSecond());
+        intervals.sort(Comparator.comparingInt(Pair::getFirst));
+        List<Pair<Integer,Integer>> merged_list = new ArrayList<>();
+        Pair<Integer,Integer> current = intervals.get(0);
+        Pair<Integer,Integer> next;
+        for (int i = 1; i < intervals.size(); i++) {
+            next = intervals.get(i);
+            if(current.getSecond() >= next.getFirst()) current.setSecond(Math.max(current.getSecond(), next.getSecond()));
+            else {
+                merged_list.add(current);
+                current = next;
+            }
+        }
+        merged_list.add(current);
+        return merged_list;
+    }
+
+
+
 
 
 }

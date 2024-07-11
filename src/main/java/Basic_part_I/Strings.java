@@ -1,6 +1,6 @@
 package Basic_part_I;
 
-import java.util.Arrays;
+import java.util.*;
 
 public class Strings {
 
@@ -112,6 +112,26 @@ public class Strings {
             if(str.substring(i,str.length()-1).startsWith(occur)) return true;
         }
         return false;
+    }
+
+    public static boolean task_141(String str){
+        Set<Character> unique_chars = new HashSet<>();
+        for (int i = 0; i < str.length(); i++) {
+            if(!unique_chars.add(str.charAt(i))) return false;
+        }
+        return true;
+    }
+
+    public static boolean task_142(String str_1, String str_2){
+        if(str_1.length() == str_2.length()) return false;
+        Map<Character,Integer> map_1 = new HashMap<>();
+        Map<Character,Integer> map_2 = new HashMap<>();
+
+        for (int i = 0; i < str_1.length(); i++) {
+            map_1.put(str_1.charAt(i),map_1.getOrDefault(str_1.charAt(i),0)+1);
+            map_2.put(str_2.charAt(i),map_2.getOrDefault(str_2.charAt(i),0)+1);
+        }
+        return map_1.equals(map_2);
     }
 
 
