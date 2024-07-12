@@ -1,12 +1,10 @@
 package Basic_part_II;
 
 import Basic_part_I.Number_repr;
+import Util.Pair;
 import Util.Prime;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class Arrays_and_numbers {
 
@@ -144,6 +142,134 @@ public class Arrays_and_numbers {
         while(index < array.length) array[index++] = 0;
         return array;
     }
+
+    public static int task_168(int number, int multiplier){
+        int result = 0;
+        boolean is_negative = (number < 0) ^ (multiplier < 0);
+        number = Math.abs(number);
+        multiplier = Math.abs(multiplier);
+        while(multiplier != 0){
+            if((multiplier & 1) == 1) result += number;
+            number <<= 1;
+            multiplier >>= 1;
+        }
+        return is_negative ? -result : result;
+    }
+
+    public static int task_170(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+
+        Set<Integer> numSet = new HashSet<>();
+        for (int num : nums) {
+            numSet.add(num);
+        }
+
+        int longestStreak = 0;
+
+        for (int num : numSet)
+            if (!numSet.contains(num - 1)) {
+                int currentNum = num;
+                int currentStreak = 1;
+                while (numSet.contains(currentNum + 1)) {
+                    currentNum++;
+                    currentStreak++;
+                }
+                longestStreak = Math.max(longestStreak, currentStreak);
+            }
+        return longestStreak;
+    }
+
+    public static List<Double> task_173(int[] array, int window_size){ // TODO
+        if(array == null || array.length == 0 || window_size == 0 || window_size > array.length)
+            return null;
+        List<Double> medians = new ArrayList<>();
+        PriorityQueue<Integer> max_heap = new PriorityQueue<>(Collections.reverseOrder());
+        PriorityQueue<Integer> min_heap = new PriorityQueue<>();
+
+        for (int i = 0; i < array.length; i++) {
+            int number = array[i];
+            if(max_heap.isEmpty() || number <= max_heap.peek()) max_heap.add(number);
+            else min_heap.add(number);
+
+
+        }
+        return medians;
+    }
+
+//    public static  List<Integer> task_174(int[] array, int window_size){
+//        if(array == null || array.length == 0 || window_size == 0 || window_size > array.length)
+//            return null;
+//        Deque<Integer> deque = new LinkedList<>();
+//
+//    }
+
+
+    public static Pair<int[],int[]> task_176(int[] array){
+        List<Integer> odd_list = new ArrayList<>();
+        List<Integer> even_list = new ArrayList<>();
+        for(int number : array){
+            if(number % 2 == 0) even_list.add(number);
+            else odd_list.add(number);
+        }
+        int[] odd_array = new int[odd_list.size()];
+        int[] even_array = new int[even_list.size()];
+        for (int i = 0; i < odd_array.length; i++) odd_array[i] = odd_list.get(i);
+        for (int i = 0; i < even_array.length; i++) even_array[i] = even_list.get(i);
+        return new Pair<>(odd_array,even_array);
+    }
+
+    public static Set<Integer> task_178(int[] array){
+        if(array == null || array.length == 0) return null;
+        Set<Integer> longest_set = new HashSet<>();
+        for (int i = 0; i < array.length; i++) {
+            Set<Integer> current_set = new HashSet<>();
+            int j = i, previous = Integer.MIN_VALUE; boolean growing_set = true;
+            do {
+                if(previous >= array[j] || !current_set.add(array[j])) growing_set = false;
+                previous = array[j];
+                j++;
+            } while(j < array.length && growing_set);
+            if(current_set.size() > longest_set.size()) longest_set = current_set;
+        }
+        return longest_set;
+    }
+
+    public static int[] task_179(int[] array){
+        boolean create_new_array = false;
+        array[array.length-1]++;
+        for (int i = array.length-1; i >= 0; i--) {
+            if(array[i] > 9){
+                if(i != 0) array[i-1]++;
+                else create_new_array = true;
+                array[i] %= 10;
+            }
+        }
+        if(create_new_array){
+            int[] new_array = new int[array.length+1];
+            new_array[0] = 1;
+            for (int i = 1; i < new_array.length; i++) {
+                new_array[i] = array[i-1];
+            }
+            return new_array;
+        }
+        return array;
+    }
+
+    public static int task_183(int number){
+        while(number > 9){
+            int temp = 0;
+            while(number != 0){
+                temp += number % 10;
+                number /= 10;
+            }
+            number = temp;
+        }
+        return number;
+    }
+
+
 
 
 
