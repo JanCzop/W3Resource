@@ -269,6 +269,17 @@ public class Arrays_and_numbers {
         return number;
     }
 
+    public static boolean task_191(int n){
+        if (n < 0 ) return false;
+        int limit = (int) Math.sqrt(n);
+        for (int x = 0; x <= limit ; x++) {
+            int y_squared = n - x*x;
+            int y = (int) Math.sqrt(y_squared);
+            if(y*y == y_squared) return true;
+        }
+        return false;
+    }
+
 
 
 
