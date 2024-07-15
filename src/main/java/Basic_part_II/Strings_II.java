@@ -1,9 +1,8 @@
 package Basic_part_II;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import Util.Pair;
+
+import java.util.*;
 
 public class Strings_II {
 
@@ -122,5 +121,78 @@ public class Strings_II {
         }
         return result;
     }
+
+    public static boolean task_199(String pattern, String str){
+        if (str == null || pattern == null || str.length() == 0 || pattern.length() == 0) return false;
+        String[] words = str.split(" ");
+        if (pattern.length() != words.length) return false;
+        Map<Character, String> map = new HashMap<>();
+        Map<String, Character> reverseMap = new HashMap<>();
+
+        for (int i = 0; i < pattern.length(); i++) {
+            char c = pattern.charAt(i);
+            String word = words[i];
+
+            if (map.containsKey(c)) {
+                if (!map.get(c).equals(word)) return false;
+            } else {
+                if (reverseMap.containsKey(word)) {
+                    return false; // Ensure the word is not already mapped to another character
+                }
+                map.put(c, word);
+                reverseMap.put(word, c);
+            }
+        }
+        return true;
+    }
+
+    public static String task_200(String str){
+        if(str == null) return null;
+        if(str.length() == 0) return "";
+
+        Set<Character> set = new HashSet<>();
+        for (Character c : str.toCharArray())
+            set.add(c);
+        List<Character> list = new ArrayList<>(set);
+        Collections.sort(list);
+        StringBuilder builder = new StringBuilder();
+        for (Character c : list) builder.append(c);
+        return builder.toString();
+    }
+
+    public static String task_208(String str) {
+        if (str == null || str.isEmpty()) return "";
+
+        StringBuilder compressed = new StringBuilder();
+        int count = 1;
+        for (int i = 1; i < str.length(); i++) {
+            if (str.charAt(i) == str.charAt(i - 1)) count++;
+            else {
+                compressed.append(str.charAt(i - 1)).append(count);
+                count = 1;
+            }
+        }
+        compressed.append(str.charAt(str.length() - 1)).append(count);
+        return compressed.toString();
+    }
+
+    public static Pair<String,String> task_227(String str){
+        if (str == null) return null;
+        String[] words = str.split(" ");
+        if(words.length == 0) return null;
+        String current_longest = "";
+        String current_most_frequent = "";
+        int highest_frequency = 0;
+        Map<String,Integer> frequency = new HashMap<>();
+        for (String word : words){
+            if(current_longest.length() < word.length()) current_longest = word;
+            frequency.put(word,frequency.getOrDefault(word,0)+1);
+        }
+        for (Map.Entry<String,Integer> entry : frequency.entrySet()){
+            if (entry.getValue() > highest_frequency) current_most_frequent = entry.getKey();
+        }
+        return new Pair<>(current_longest,current_most_frequent);
+    }
+
 
 }

@@ -5,6 +5,8 @@ import Util.Pair;
 import Util.Prime;
 
 import java.util.*;
+import java.util.zip.CRC32;
+import java.util.zip.Checksum;
 
 public class Arrays_and_numbers {
 
@@ -280,6 +282,229 @@ public class Arrays_and_numbers {
         return false;
     }
 
+    public static int task_192(int n) {
+        int[] set = new int[n];
+        for (int i = 0; i < n; i++) {
+            set[i] = i + 1;
+        }
+
+        List<List<Integer>> subsets = getSubsets(set);
+        int totalSum = 0;
+
+        for (List<Integer> subset : subsets) {
+            for (int num : subset) {
+                totalSum += num;
+            }
+        }
+
+        return totalSum;
+    }
+
+    private static List<List<Integer>> getSubsets(int[] set) {
+        List<List<Integer>> subsets = new ArrayList<>();
+        int subsetCount = 1 << set.length; // 2^n
+
+        for (int i = 0; i < subsetCount; i++) {
+            List<Integer> subset = new ArrayList<>();
+            for (int j = 0; j < set.length; j++) {
+                if ((i & (1 << j)) != 0) {
+                    subset.add(set[j]);
+                }
+            }
+            subsets.add(subset);
+        }
+
+        return subsets;
+    }
+
+    public static List<Pair<Integer,Integer>> task_194(int[][] matrix, int number){
+        if(matrix == null || matrix.length == 0 ) return null;
+        List<Pair<Integer,Integer>> result = new ArrayList<>();
+        for (int i = 0; i < matrix.length; i++)
+            for (int j = 0; j < matrix[i].length; j++)
+                if (matrix[i][j] == number) result.add(new Pair<>(i,j));
+        return result.size() == 0 ? null : result;
+    }
+
+    public static boolean task_195(int n_1, int n_2, int n_3){
+        if (n_1 <= 0 || n_2 <= 0 || n_3 <= 0) return false;
+        return (n_1 + n_2 > n_3) && (n_3 + n_2 > n_1) && (n_1 + n_3 > n_2);
+    }
+
+    public static int[][] task_196(int n) {
+        int[][] spiralArray = new int[n][n];
+        int value = 1;
+        int top = 0, bottom = n - 1;
+        int left = 0, right = n - 1;
+
+        while (value <= n * n) {
+            for (int i = left; i <= right; i++) spiralArray[top][i] = value++;
+            top++;
+            for (int i = top; i <= bottom; i++) spiralArray[i][right] = value++;
+            right--;
+            for (int i = right; i >= left; i--) spiralArray[bottom][i] = value++;
+            bottom--;
+            for (int i = bottom; i >= top; i--) spiralArray[i][left] = value++;
+            left++;
+        }
+        return spiralArray;
+    }
+
+    public static boolean task_197(int number){
+        if (number < 0) return false;
+        int sqrt_n = (int) Math.sqrt(number);
+        return (sqrt_n * sqrt_n == number);
+    }
+
+    public static int task_199(int prime){
+        if (!Prime.prime_test(prime)) throw new IllegalArgumentException("No prime number given");
+
+        int prime_counter = 0;
+        int number = 0;
+        while(number != prime){
+            if (Prime.prime_test(number)) prime_counter++;
+            number++;
+        }
+        return prime_counter;
+    }
+
+    public static boolean task_201(int[] nums, int k) {
+        int totalSum = Arrays.stream(nums).sum();
+        if (totalSum % k != 0) {
+            return false;
+        }
+
+        int subsetSum = totalSum / k;
+        boolean[] visited = new boolean[nums.length];
+        Arrays.sort(nums);
+        return canPartition(nums, visited, 0, k, 0, subsetSum);
+    }
+
+    private static boolean canPartition(int[] nums, boolean[] visited, int startIndex, int k, int currentSum, int targetSum) {
+        if (k == 1) {
+            return true;
+        }
+        if (currentSum == targetSum) {
+            return canPartition(nums, visited, 0, k - 1, 0, targetSum);
+        }
+
+        for (int i = startIndex; i < nums.length; i++) {
+            if (!visited[i] && currentSum + nums[i] <= targetSum) {
+                visited[i] = true;
+                if (canPartition(nums, visited, i + 1, k, currentSum + nums[i], targetSum)) {
+                    return true;
+                }
+                visited[i] = false;
+            }
+        }
+        return false;
+    }
+
+    private static boolean task_205(int number){
+        return (number > 0 && ((number & number-1) == 0));
+    }
+
+    public static long get_string_checksum(String str){
+        if (str == null) throw new IllegalArgumentException("Data can't be null");
+        return get_checksum(str.getBytes());
+    }
+    private static long get_checksum(byte[] data){
+        if (data == null) throw new IllegalArgumentException("Data can't be null");
+        Checksum checksum = new CRC32();
+        checksum.update(data,0, data.length);
+        return checksum.getValue();
+    }
+
+    private static int[] task_211(int[] array, int k){
+        if(array == null || array.length == 0 || k == 0) return null;
+
+        PriorityQueue<Integer> queue = new PriorityQueue<>();
+        for (int number : array) queue.add(number);
+        int[] result = new int[Math.min(queue.size(),k)];
+        for (int i = 0; i < result.length; i++)
+            if(queue.peek() != null) result[i] = queue.poll();
+        return result;
+    }
+
+    private static int task_212(int num_1, int num_2){
+        int sum = num_1 + num_2;
+        int counter = 0;
+        do {
+            counter++;
+            sum /= 10;
+        } while(sum != 0);
+        return counter;
+    }
+
+    private static int task_215(int months_n){
+        int DEBT = 100_000;
+        double INTEREST = 0.04;
+        for (int i = 0; i < months_n; i++) {
+            DEBT *= (1+INTEREST);
+        }
+        return DEBT/1000*1000;
+    }
+
+    public static List<Integer> task_217(int number){
+        List<Integer> list = new ArrayList<>();
+        int i = 0;
+        while(i < number){
+            if (Prime.prime_test(i)) list.add(i);
+            i++;
+        }
+        return list;
+    }
+
+
+    public static Pair<Double,Pair<Double,Double>> task_218(Pair<Double,Double> a, Pair<Double,Double> b, Pair<Double,Double> c){
+        double mA = (b.getSecond()-a.getSecond())/(b.getFirst()-a.getFirst());
+        double mB = (c.getSecond()-b.getSecond())/(c.getFirst()-b.getFirst());
+        if (mA == mB) return null;
+
+        double h = ((mA*mB)*(a.getSecond()-c.getSecond())+mB*(a.getFirst()+b.getFirst())-mA*(b.getFirst()+c.getFirst()))/(2*(mB-mA));
+        double k = (h-((a.getFirst()+b.getFirst()))/2)/(-mA)+(a.getSecond()+b.getSecond())/2;
+
+        double r = Math.sqrt((h-a.getFirst())+(k-a.getSecond()));
+
+        return new Pair<>(r,new Pair<>(h,k)); // (Radius,S(x,y));
+    }
+
+
+    public static boolean task_219(Pair<Double,Double> a, Pair<Double,Double> b, Pair<Double,Double> c, Pair<Double,Double> point){
+        double triangle_area = area_of_triangle(a,b,c);
+        double PAB_area = area_of_triangle(point,a,b);
+        double PAC_area = area_of_triangle(point,a,c);
+        double PBC_area = area_of_triangle(point,b,c);
+        return triangle_area == PAB_area + PAC_area + PBC_area;
+    }
+
+    private static double area_of_triangle(Pair<Double,Double> a, Pair<Double,Double> b, Pair<Double,Double> c){
+        return Math.abs(a.getFirst()*(b.getSecond()-c.getSecond()+b.getFirst()*(c.getSecond()-a.getSecond())
+                +c.getFirst()*(a.getSecond()-b.getSecond())))/2;
+    }
+
+
+    // y=ax+b => for
+    // { y1=ax1+b }
+    // { y2=ax2+b } ==> a=(y1-y2)/(x1-x2)
+    // pq _||_ rs if a_pq == a_rs
+    public static boolean task_222(Pair<Double,Double> p, Pair<Double,Double> q, Pair<Double,Double> r, Pair<Double,Double> s){
+        double a_pq = (p.getSecond()-q.getSecond()/(p.getFirst()-q.getFirst()));
+        double a_rs = (r.getSecond()-s.getSecond()/(r.getFirst()-s.getFirst()));
+        return a_pq == a_rs;
+    }
+
+    // d = Sqrt((x-a)^2+(y-b)^2)
+    public static boolean task_222_1(double r, Pair<Double,Double> s, Pair<Double,Double> point){
+        return Math.sqrt(Math.pow(point.getFirst()-s.getFirst(),2)+Math.pow(point.getSecond()-s.getSecond(),2)) <= r;
+    }
+    public static boolean task_222_2(Pair<Double,Double> s1, Pair<Double,Double> s2, double r1, double r2){
+        return distance_between_points(s1,s2) <= r1 + r2;
+    }
+
+    private static double distance_between_points(Pair<Double,Double> s1, Pair<Double,Double> s2){
+        return Math.sqrt(Math.pow(s2.getFirst()-s1.getFirst(),2)+Math.pow(s2.getSecond()-s1.getSecond(),2));
+    }
 
 
 
