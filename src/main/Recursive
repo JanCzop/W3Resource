@@ -1,0 +1,133 @@
+
+w3resource
+
+
+    Home
+    ▼Java Exercises
+    Home
+    Basic Part-I
+    Basic Part-II
+    Data Types
+    Conditional Statement
+    Recursive Methods
+    Java Enum Types
+    Exception Handling
+    Array
+    Java Inheritance
+    Java Abstract Classes
+    Java Thread
+    Java Multithreading
+    Java Lambda expression
+    Java Generic Method
+    Unit Test
+    Object-Oriented Programming
+    Java Interface
+    Java Encapsulation
+    Java Polymorphism
+    Stack
+    String
+    Streams
+    Date Time
+    Method
+    Numbers
+    File Input-Output
+    Collection
+    Math
+    Sorting
+    Search
+    Regular Expression
+    ▼JavaFx Exercises
+    JavaFx Exercises Home
+    ..More to come..
+
+Java Recursive Methods: Exercises, Practice, Solution
+Last update on July 16 2023 16:13:51 (UTC/GMT +8 hours)
+Java Recursive Exercises [15 exercises with solution]
+
+[An editor is available at the bottom of the page to write and execute the scripts.  Go to the editor]
+
+1. Write a Java recursive method to calculate the factorial of a given positive integer.
+
+Click me to see the solution
+
+2. Write a Java recursive method to calculate the sum of all numbers from 1 to n.
+
+Click me to see the solution
+
+3. Write a Java recursive method to calculate the nth Fibonacci number.
+
+Click me to see the solution
+
+4. Write a Java recursive method to check if a given string is a palindrome.
+
+Click me to see the solution
+
+5. Write a Java recursive method to calculate the exponentiation of a number (base) raised to a power (exponent).
+
+Click me to see the solution
+
+6. Write a Java recursive method to reverse a given string.
+
+Click me to see the solution
+
+7. Write a Java recursive method to find the greatest common divisor (GCD) of two numbers.
+
+Click me to see the solution
+
+8. Write a Java recursive method to count the number of occurrences of a specific element in an array.
+
+Click me to see the solution
+
+9. Write a Java recursive method to find the sum of all odd numbers in an array.
+
+Click me to see the solution
+
+10. Write a Java recursive method to find the length of a given string.
+
+Click me to see the solution
+
+11. Write a Java recursive method to generate all possible permutations of a given string.
+
+Click me to see the solution
+
+12. Write a Java recursive method to find the maximum element in an array.
+
+Click me to see the solution
+
+13. Write a Java recursive method to calculate the product of all numbers in an array.
+
+Click me to see the solution
+
+14. Write a Java recursive method to find the sum of the digits of a given integer.
+
+Click me to see the solution
+
+15. Write a Java recursive method to check if a given array is sorted in ascending order.
+
+Click me to see the solution
+
+More to Come !
+
+* To run the code mouse over on Result panel and click on 'RERUN' button.*
+
+Java Code Editor
+
+
+Do not submit any solution of the above exercises at here, if you want to contribute go to the appropriate exercise page.
+﻿
+
+Follow us on Facebook and Twitter for latest update.
+
+    Weekly Trends and Language Statistics
+    Weekly Trends and Language Statistics
+
+This work is licensed under a Creative Commons Attribution 4.0 International License.
+©w3resource.com 2011-2024
+
+    Privacy
+    About
+    Contact
+    Feedback
+    Advertise
+
+
