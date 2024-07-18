@@ -1,0 +1,104 @@
+
+w3resource
+
+
+    Home
+    ▼Java Exercises
+    Home
+    Basic Part-I
+    Basic Part-II
+    Data Types
+    Conditional Statement
+    Recursive Methods
+    Java Enum Types
+    Exception Handling
+    Array
+    Java Inheritance
+    Java Abstract Classes
+    Java Thread
+    Java Multithreading
+    Java Lambda expression
+    Java Generic Method
+    Unit Test
+    Object-Oriented Programming
+    Java Interface
+    Java Encapsulation
+    Java Polymorphism
+    Stack
+    String
+    Streams
+    Date Time
+    Method
+    Numbers
+    File Input-Output
+    Collection
+    Math
+    Sorting
+    Search
+    Regular Expression
+    ▼JavaFx Exercises
+    JavaFx Exercises Home
+    ..More to come..
+
+Java Thread - Exercises, Practices, Solutions
+Last update on May 30 2023 15:12:33 (UTC/GMT +8 hours)
+Java Thread Exercises [7 exercises with solution]
+
+[An editor is available at the bottom of the page to write and execute the scripts. Go to the editor]
+
+In computer science, a thread of execution is the smallest sequence of programmed instructions that can be managed independently by a scheduler, which is typically a part of the operating system. The implementation of threads and processes differs between operating systems.
+
+A thread is a thread of execution in a program. The Java Virtual Machine allows an application to have multiple threads of execution running concurrently.
+
+Every thread has a priority. Threads with higher priority are executed in preference to threads with lower priority. Each thread may or may not also be marked as a daemon. When code running in some thread creates a new Thread object, the new thread has its priority initially set equal to the priority of the creating thread, and is a daemon thread if and only if the creating thread is a daemon.
+
+1. Write a Java program to create a basic Java thread that prints "Hello, World!" when executed.
+
+Click me to see the solution
+
+2. Write a Java program that creates two threads to find and print even and odd numbers from 1 to 20.
+
+Click me to see the solution
+
+3. Write a Java program that sorts an array of integers using multiple threads.
+
+Click me to see the solution
+
+4. Write a Java program that performs matrix multiplication using multiple threads.
+
+Click me to see the solution
+
+5. Write a Java program that calculates the sum of all prime numbers up to a given limit using multiple threads.
+
+Click me to see the solution
+
+6. Write a Java program to implement a concurrent web crawler that crawls multiple websites simultaneously using threads.
+
+Click me to see the solution
+
+7. Write a Java program that creates a bank account with concurrent deposits and withdrawals using threads.
+
+Click me to see the solution
+
+Java Code Editor
+
+More to Come !
+
+Do not submit any solution of the above exercises at here, if you want to contribute go to the appropriate exercise page.
+﻿
+
+Follow us on Facebook and Twitter for latest update.
+
+    Weekly Trends and Language Statistics
+    Weekly Trends and Language Statistics
+
+This work is licensed under a Creative Commons Attribution 4.0 International License.
+©w3resource.com 2011-2024
+
+    Privacy
+    About
+    Contact
+    Feedback
+    Advertise
+
+

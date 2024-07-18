@@ -1,0 +1,108 @@
+Sponsored by OVHcloud
+Wirtualizacja bez ograniczeń na nowych serwerach ✅ Procesory AMD EPYC 4004 ✅ RAM DDR5 5200 MHz ✅ Prywatna sieć 5 Gbps
+Odkryj >>>
+Hide Ad
+Ad via BuySellAds
+w3resource
+
+
+    Home
+    ▼Java Exercises
+    Home
+    Basic Part-I
+    Basic Part-II
+    Data Types
+    Conditional Statement
+    Recursive Methods
+    Java Enum Types
+    Exception Handling
+    Array
+    Java Inheritance
+    Java Abstract Classes
+    Java Thread
+    Java Multithreading
+    Java Lambda expression
+    Java Generic Method
+    Unit Test
+    Object-Oriented Programming
+    Java Interface
+    Java Encapsulation
+    Java Polymorphism
+    Stack
+    String
+    Streams
+    Date Time
+    Method
+    Numbers
+    File Input-Output
+    Collection
+    Math
+    Sorting
+    Search
+    Regular Expression
+    ▼JavaFx Exercises
+    JavaFx Exercises Home
+    ..More to come..
+
+Java Generic Methods - Exercises, Practices, Solutions
+Last update on June 03 2023 12:56:10 (UTC/GMT +8 hours)
+Java Generic Method Exercises [7 exercises with solution]
+
+[An editor is available at the bottom of the page to write and execute the scripts. Go to the editor]
+
+Generic Methods:
+
+Generic methods are methods that introduce their own type parameters. This is similar to declaring a generic type, but the type parameter's scope is limited to the method where it is declared. Static and non-static generic methods are allowed, as well as generic class constructors.
+
+The syntax for a generic method includes a list of type parameters, inside angle brackets, which appears before the method's return type. For static generic methods, the type parameter section must appear before the method's return type
+
+1. Write a Java program to create a generic method that takes two arrays of the same type and checks if they have the same elements in the same order.
+
+Click me to see the solution
+
+2. Write a Java program to create a generic method that takes a list of numbers and returns the sum of all the even and odd numbers.
+
+Click me to see the solution
+
+3. Write a Java program to create a generic method that takes a list of any type and a target element. It returns the index of the first occurrence of the target element in the list. Return -1 if the target element cannot be found.
+
+Click me to see the solution
+
+4. Write a Java program to create a generic method that takes a list of any type and returns it as a new list with the elements in reverse order.
+
+Click me to see the solution
+
+5. Write a Java program to create a generic method that takes two lists of the same type and merges them into a single list. This method alternates the elements of each list.
+
+Click me to see the solution
+
+6. Write a Java program to create a generic method that takes a list of any type and a predicate. It returns an array list containing only elements that satisfy the predicate.
+
+Click me to see the solution
+
+7. Write a Java program to create a generic method that takes a map of any type and prints each key-value pair.
+
+Click me to see the solution
+
+Java Code Editor
+
+More to Come !
+
+Do not submit any solution of the above exercises at here, if you want to contribute go to the appropriate exercise page.
+﻿
+
+Follow us on Facebook and Twitter for latest update.
+
+    Weekly Trends and Language Statistics
+    Weekly Trends and Language Statistics
+
+This work is licensed under a Creative Commons Attribution 4.0 International License.
+©w3resource.com 2011-2024
+
+    Privacy
+    About
+    Contact
+    Feedback
+    Advertise
+
+

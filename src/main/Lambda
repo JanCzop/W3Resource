@@ -1,0 +1,175 @@
+
+w3resource
+
+
+    Home
+    ▼Java Exercises
+    Home
+    Basic Part-I
+    Basic Part-II
+    Data Types
+    Conditional Statement
+    Recursive Methods
+    Java Enum Types
+    Exception Handling
+    Array
+    Java Inheritance
+    Java Abstract Classes
+    Java Thread
+    Java Multithreading
+    Java Lambda expression
+    Java Generic Method
+    Unit Test
+    Object-Oriented Programming
+    Java Interface
+    Java Encapsulation
+    Java Polymorphism
+    Stack
+    String
+    Streams
+    Date Time
+    Method
+    Numbers
+    File Input-Output
+    Collection
+    Math
+    Sorting
+    Search
+    Regular Expression
+    ▼JavaFx Exercises
+    JavaFx Exercises Home
+    ..More to come..
+
+Java Lambda - Exercises, Practice, Solution
+Last update on May 24 2023 12:14:58 (UTC/GMT +8 hours)
+Java Lambda [25 exercises with solution]
+
+[An editor is available at the bottom of the page to write and execute the scripts.  Go to the editor]
+
+Java 8 introduces several new language features designed to make it easier to write such blocks of code-the key feature being lambda expressions, also colloquially referred to as closures or anonymous methods. A lambda expression is just a shorter way of writing an implementation of a method for later execution.
+
+1. Write a Java program to implement a lambda expression to find the sum of two integers.
+
+Click me to see the solution
+
+2. Write a Java program to implement a lambda expression to check if a given string is empty.
+
+Click me to see the solution
+
+3. Write a Java program to implement a lambda expression to convert a list of strings to uppercase and lowercase.
+
+Click me to see the solution
+
+4. Write a Java program to implement a lambda expression to filter out even and odd numbers from a list of integers.
+
+Click me to see the solution
+
+5. Write a Java program to implement a lambda expression to sort a list of strings in alphabetical order.
+
+Click me to see the solution
+
+6. Write a Java program to implement a lambda expression to find the average of a list of doubles.
+
+Click me to see the solution
+
+7. Write a Java program to implement a lambda expression to remove duplicates from a list of integers.
+
+Click me to see the solution
+
+8. Write a lambda expression to implement a lambda expression to calculate the factorial of a given number.
+
+Click me to see the solution
+
+9. Write a Java program to implement a lambda expression to create a lambda expression to check if a number is prime.
+
+Click me to see the solution
+
+10. Write a Java program to implement a lambda expression to concatenate two strings.
+
+Click me to see the solution
+
+11. Write a Java program to implement a lambda expression to find the maximum and minimum values in a list of integers.
+
+Click me to see the solution
+
+12. Write a Java program to create a lambda expression to multiply and sum all elements in a list of integers.
+
+Click me to see the solution
+
+13. Write a Java program to implement a lambda expression to count words in a sentence.
+
+Click me to see the solution
+
+14. Write a Java program to implement a lambda expression to check if a given string is a palindrome.
+
+Click me to see the solution
+
+15. Write a Java program to implement a lambda expression to calculate the sum of squares of all odd and even numbers in a list.
+
+Click me to see the solution
+
+16. Write a Java program to implement a lambda expression to check if a list of strings contains a specific word.
+
+Click me to see the solution
+
+17. Write a Java program to implement a lambda expression to find the length of the longest and smallest string in a list.
+
+Click me to see the solution
+
+18. Write a Java program to implement a lambda expression to check if a given number is a perfect square.
+
+Click me to see the solution
+
+19. Write a Java program to implement a lambda expression to find the second largest and smallest element in an array.
+
+Click me to see the solution
+
+20. Write a Java program to implement a lambda expression to sort a list of objects based on a specific attribute.
+
+Click me to see the solution
+
+21. Write a Java program to implement a lambda expression to calculate the sum of all prime numbers in a given range.
+
+Click me to see the solution
+
+22. Write a Java program to implement a lambda expression to check if a list of strings are all uppercase or all lowercase or mixedcase.
+
+Click me to see the solution
+
+23. Write a Java program to implement a lambda expression to find the average length of strings in a list.
+
+Click me to see the solution
+
+24. Write a Java program to implement a lambda expression to find the largest prime factor of a given number.
+
+Click me to see the solution
+
+25. Write a Java program to implement a lambda expression to convert an integer to their corresponding binary representation.
+
+Click me to see the solution
+
+More to Come !
+
+* To run the code mouse over on Result panel and click on 'RERUN' button.*
+
+Java Code Editor
+
+
+Do not submit any solution of the above exercises at here, if you want to contribute go to the appropriate exercise page.
+﻿
+
+Follow us on Facebook and Twitter for latest update.
+
+    Weekly Trends and Language Statistics
+    Weekly Trends and Language Statistics
+
+This work is licensed under a Creative Commons Attribution 4.0 International License.
+©w3resource.com 2011-2024
+
+    Privacy
+    About
+    Contact
+    Feedback
+    Advertise
+
+
