@@ -1,0 +1,113 @@
+
+w3resource
+
+
+    Home
+    ▼Java Exercises
+    Home
+    Basic Part-I
+    Basic Part-II
+    Data Types
+    Conditional Statement
+    Recursive Methods
+    Java Enum Types
+    Exception Handling
+    Array
+    Java Inheritance
+    Java Abstract Classes
+    Java Thread
+    Java Multithreading
+    Java Lambda expression
+    Java Generic Method
+    Unit Test
+    Object-Oriented Programming
+    Java Interface
+    Java Encapsulation
+    Java Polymorphism
+    Stack
+    String
+    Streams
+    Date Time
+    Method
+    Numbers
+    File Input-Output
+    Collection
+    Math
+    Sorting
+    Search
+    Regular Expression
+    ▼JavaFx Exercises
+    JavaFx Exercises Home
+    ..More to come..
+
+Java Unit Test: Exercises, Solutions, and Practice
+Last update on January 08 2024 12:46:58 (UTC/GMT +8 hours)
+Java Unit Test [ 10 exercises with solution ]
+
+[An editor is available at the bottom of the page to write and execute the scripts. Go to the editor]
+
+1. Write a Java unit test case to assert that a given method returns the expected value.
+
+Click me to see the solution
+
+2. Write a Java test case to verify that a specific exception is thrown when a method is called with invalid input.
+
+Click me to see the solution
+
+3. Write a Java test case that implements a JUnit test with setup and teardown methods to prepare and clean up resources for multiple test cases.
+
+Click me to see the solution
+
+4. Write a Java program that implements parameterized test to verify that a method behaves correctly for different input values.
+
+Click me to see the solution
+
+5. Write a Java test case that fails if a method takes longer than a specified time to execute.
+
+Click me to see the solution
+
+6. Write a Java test case that is intentionally ignored, and explain the scenarios where test skipping might be useful.
+
+Click me to see the solution
+
+7. Write a Java program that uses assertions with custom error messages to provide meaningful feedback when a test fails.
+
+Click me to see the solution
+
+8. Write a Java program to explore strategies for testing private methods in a class.
+
+Click me to see the solution
+
+9. Write a Java program that tests a singleton class, ensuring it behaves as expected in a multi-threaded environment.
+
+Click me to see the solution
+
+10. Write a Java program that create tests that verify the interaction between different components or modules in your application.
+
+Click me to see the solution
+
+Java Code Editor
+
+More to Come !
+
+Do not submit any solution of the above exercises at here, if you want to contribute go to the appropriate exercise page.
+
+Previous: Java Exercises Home.
+Next: Java Unit Test Case: Asserting Expected method returns.
+﻿
+
+Follow us on Facebook and Twitter for latest update.
+
+    Weekly Trends and Language Statistics
+    Weekly Trends and Language Statistics
+
+This work is licensed under a Creative Commons Attribution 4.0 International License.
+©w3resource.com 2011-2024
+
+    Privacy
+    About
+    Contact
+    Feedback
+    Advertise
+
+
