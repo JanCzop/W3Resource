@@ -6,4 +6,5 @@ public interface Stack_interface <T>{
     void push(T data);
     boolean is_empty();
     int count();
+
 }
